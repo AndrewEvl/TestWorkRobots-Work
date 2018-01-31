@@ -6,9 +6,29 @@
 </head>
 <body>
 <div>
+<a th:href="@{/add-robots}">Create robot</a>|
+    <a th:href="@{/add-work}">Create Work</a>
+</div>
+Robots list:
+<div>
     <ul>
         <p th:each="allRobots : ${allRobots}">
-            <t th:text="${allRobots.numberRobot}"
+            <t th:text="${allRobots.id}"></t> | Bender №
+            <t th:text="${allRobots.numberRobot}"></t> |
+            <!--<t th:text="${allrobots.statusRobot}"></t>-->
+        </p>
+    </ul>
+</div>
+Works for robots:
+<div>
+    <ul>
+        <p th:each="allWorks : ${allWorks}"> |
+            Work name:
+            <t th:text="${allWorks.works}">Work:</t> |
+            How many robots need:
+            <t th:text="${allWorks.sizeWork}">How many robots:</t> |
+            Status work:
+            <t th:text="${allWorks.statusWork}">Status work</t> |
         </p>
     </ul>
 </div>

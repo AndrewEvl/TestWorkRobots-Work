@@ -1,6 +1,7 @@
 package controller;
 
 import entity.Robot;
+import entity.StatusRobot;
 import entity.Work;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import service.serviceInteface.RobotService;
 import service.serviceInteface.WorkService;
 
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class RobotsController {
@@ -27,11 +29,25 @@ public class RobotsController {
         List<Work> allWorks = workService.getAll();
         model.addAttribute("allRobots", allRobots);
         model.addAttribute("allWorks", allWorks);
-        return "robots-html/home-page";
+        return "home-page";
     }
 
-    @GetMapping("add-robots")
-    public String addRobotsGet (Model model){
+    @GetMapping("/add-robots")
+    public String addRobotsGet (Robot robot){
+        robot.setNumberRobot(generationRobotNumber());
+        robot.setStatusRobot(StatusRobot.LEAFE);
+        robotService.save(robot);
         return "redirect:/home";
+    }
+
+    private String generationRobotNumber() {
+        int length = 5;
+        String characters = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+        Random random = new Random();
+        char[] text = new char[length];
+        for (int i = 0; i < length; i++) {
+            text[i] = characters.charAt(random.nextInt(characters.length()));
+        }
+        return new String(text);
     }
 }

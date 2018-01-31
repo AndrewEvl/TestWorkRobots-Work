@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Robot extends BaseEntity {
 
     @Column(name = "number_robot")
-    private Long numberRobots;
+    private String numberRobot;
     @ManyToOne
     @JoinColumn(name = "work_id")
     private Work work;

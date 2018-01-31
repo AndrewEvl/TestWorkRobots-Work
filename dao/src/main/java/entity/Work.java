@@ -23,4 +23,6 @@ public class Work extends BaseEntity {
     private Set<Robot> robots = new HashSet<>();
     @Column(name = "status_work")
     private StatusWork statusWork;
+    @Column(name = "size_work")
+    private Long sizeWork;
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/add-work}" method="post" th:object="${work}">
+    <p><label th:for="work">Enter work for robot: </label>
+    <label>
+        <input type="text" th:field="*{works}">
+    </label></p>
+    <p><label th:for="work">Enter robot for this work: </label>
+        <label>
+            <input type="number" th:field="*{sizeWork}">
+        </label></p>
+    <button type="submit">Save work</button>
+</form>
+</body>
+</html>
