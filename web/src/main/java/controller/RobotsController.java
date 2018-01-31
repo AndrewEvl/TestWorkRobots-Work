@@ -17,6 +17,8 @@ public class RobotsController {
 
     private final RobotService robotService;
     private final WorkService workService;
+    private int SIZE;
+    int ROUND = 0;
 
     public RobotsController(RobotService robotService, WorkService workService) {
         this.robotService = robotService;
@@ -24,16 +26,29 @@ public class RobotsController {
     }
 
     @GetMapping("/home")
-    public String homePageGet (Model model){
+    public String homePageGet(Model model) {
+        if (ROUND == 0) {
+            for (int i = 0; i <= 5; i++) {
+                startCreateRobots();
+            }
+        }
+        if (ROUND >= 1) {
+            if (randomKillRobots() != null) {
+                String killRobots = "Some robot self-destructed";
+                model.addAttribute("randomKill", killRobots);
+            }
+        }
         List<Robot> allRobots = robotService.getAll();
         List<Work> allWorks = workService.getAll();
+        SIZE = allRobots.size();
+        ROUND++;
         model.addAttribute("allRobots", allRobots);
         model.addAttribute("allWorks", allWorks);
         return "home-page";
     }
 
     @GetMapping("/add-robots")
-    public String addRobotsGet (Robot robot){
+    public String addRobotsGet(Robot robot) {
         robot.setNumberRobot(generationRobotNumber());
         robot.setStatusRobot(StatusRobot.LEAFE);
         robotService.save(robot);
@@ -49,5 +64,27 @@ public class RobotsController {
             text[i] = characters.charAt(random.nextInt(characters.length()));
         }
         return new String(text);
+    }
+
+    private void startCreateRobots() {
+        Robot robot = new Robot();
+        robot.setNumberRobot(generationRobotNumber());
+        robot.setStatusRobot(StatusRobot.LEAFE);
+        robotService.save(robot);
+    }
+
+    private String randomKillRobots() {
+        Random random = new Random();
+        Robot robotsById = new Robot();
+        int randomInt = random.nextInt(16);
+        if (randomInt == 9) {
+            long randomId = random.nextInt(SIZE - 1);
+            robotsById = robotService.findById(randomId);
+            if (robotsById != null) {
+                robotService.delete(robotsById);
+            }
+        }
+        assert robotsById != null;
+        return robotsById.getNumberRobot();
     }
 }
