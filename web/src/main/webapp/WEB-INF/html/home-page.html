@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<
+<div>
+    <ul>
+        <p th:each="allRobots : ${allRobots}">
+            <t th:text="${allRobots.numberRobot}"
+        </p>
+    </ul>
+</div>
 </body>
 </html>

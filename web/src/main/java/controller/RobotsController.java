@@ -2,7 +2,6 @@ package controller;
 
 import entity.Robot;
 import entity.Work;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,6 @@ import java.util.List;
 @Controller
 public class RobotsController {
 
-    @Autowired
     private final RobotService robotService;
     private final WorkService workService;
 
@@ -29,7 +27,7 @@ public class RobotsController {
         List<Work> allWorks = workService.getAll();
         model.addAttribute("allRobots", allRobots);
         model.addAttribute("allWorks", allWorks);
-        return "home-page";
+        return "robots-html/home-page";
     }
 
     @GetMapping("add-robots")
