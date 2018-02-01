@@ -21,6 +21,4 @@ public class Robot extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "work_id")
     private Work work;
-    @Column(name = "status_robot")
-    private StatusRobot statusRobot;
 }

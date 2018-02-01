@@ -15,4 +15,6 @@ public interface WorkService {
     void update (Work work);
 
     void delete (Work work);
+
+    Work minId ();
 }

@@ -2,13 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Stop home page</title>
 </head>
 <body>
-<div>
-    <a th:href="@{/add-robots}">Create robot</a> |
-    <a th:href="@{/add-work}">Create Work</a> |
-    <a th:href="@{/home/stop}">Stop mini world!</a>
+<a th:href="@{/add-robots}">Create robot</a> |
+<a th:href="@{/add-work}">Create Work</a> |
+<a th:href="@{/home}">Start mini world!</a>
 </div>
 <div style="text-align: center;">Robots list</div>
 <div>
@@ -28,8 +27,7 @@
             Work name:
             <a th:href="@{/add-robots-on-work/(id=${allWorks.id})}" th:text="*{allWorks.works}">Project list</a> |
             How many robots need:
-            <t th:text="${allWorks.sizeWork}">How many robots:</t>
-            |
+            <t th:text="${allWorks.sizeWork}">How many robots:</t>|
         </p>
     </ul>
 </div>
@@ -47,8 +45,5 @@
         </p>
     </ul>
 </div>
-<meta http-equiv="refresh" content="1; url=http://localhost:8080/home">
-<meta http-equiv="refresh" content="1; url=http://localhost:8080/auto-create-work">
-<meta http-equiv="refresh" content="1; url=http://localhost:8080/auto-add-robots-on-work">
 </body>
 </html>

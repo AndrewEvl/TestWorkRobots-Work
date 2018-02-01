@@ -44,4 +44,9 @@ public class WorkServiceImpl implements WorkService {
     public void delete(Work work) {
         workDao.delete(work);
     }
+
+    @Override
+    public Work minId() {
+        return workDao.minId();
+    }
 }
