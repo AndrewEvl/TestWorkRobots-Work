@@ -105,21 +105,11 @@ public class ApplicationController {
     public String addRobotsOnWorkPost(@PathVariable("id") Long id) {
         Work work = workService.findById(id);
         int sizeWork = work.getSizeWork();
-        Random random = new Random();
         List<Robot> all = robotService.getAll();
         if (sizeWork > all.size()) {
             int difference = sizeWork - all.size();
             for (int i = 0; i <= difference; i++) {
                 createRobots();
-            }
-        }
-        //TODO Create normal method!
-        for (int i = 0; i < sizeWork; ) {
-            Robot robotById = robotService.findById((long) random.nextInt(all.size() - 1));
-            if (robotById != null) {
-                robotById.setWork(work);
-                robotService.update(robotById);
-                i++;
             }
         }
         logSuccessfulWork(work);
@@ -133,25 +123,22 @@ public class ApplicationController {
         if (workList.isEmpty()) {
             return "redirect:/home";
         }
-        Work work = workList.get(0);
-        int sizeWork = work.getSizeWork();
-        List<Robot> all = robotService.getAll();
-        if (sizeWork > all.size()) {
-            int difference = sizeWork - all.size();
-            for (int i = 0; i <= difference; i++) {
-                createRobots();
+        Random random = new Random();
+        int randomInt = random.nextInt(2);
+        if (randomInt == 1) {
+            Work work = workList.get(0);
+            int sizeWork = work.getSizeWork();
+            List<Robot> all = robotService.getAll();
+            if (sizeWork > all.size()) {
+                int difference = sizeWork - all.size();
+                for (int i = 0; i <= difference; i++) {
+                    createRobots();
+                }
             }
+
+            logSuccessfulWork(work);
+            workService.delete(work);
         }
-//        for (int i = 0; i < sizeWork - 1; ) {
-//            Robot robot = all.get(i);
-//            if (robot != null) {
-//                robot.setWork(work);
-//                robotService.update(robot);
-//                i++;
-//            }
-//        }
-        logSuccessfulWork(work);
-        workService.delete(work);
         return "redirect:/home";
     }
 
@@ -174,16 +161,19 @@ public class ApplicationController {
 
     private void createRobots() {
         Robot robot = new Robot();
-        robot.setNumberRobot(generationRobotNumber());
-        robotService.save(robot);
-        logCreateRobot(robot);
+        Random random = new Random();
+        int randomInt = random.nextInt(2);
+        if (randomInt == 1) {
+            robot.setNumberRobot(generationRobotNumber());
+            robotService.save(robot);
+            logCreateRobot(robot);
+        }
 
     }
 
     private void randomKillRobots() {
         Random random = new Random();
         int randomInt = random.nextInt(15);
-
         if (randomInt == 9) {
             List<Robot> all = robotService.getAll();
             int size = all.size();
@@ -195,10 +185,10 @@ public class ApplicationController {
     }
 
     private void creatingWork() {
-        Random random = new Random();
-        int randomInt = random.nextInt(10);
         Work work = new Work();
-        if (randomInt == 6) {
+        Random random = new Random();
+        int randomInt = random.nextInt(3);
+        if (randomInt == 1) {
             work.setWorks("Some assignment");
             work.setSizeWork(random.nextInt(15) + 1);
             workService.save(work);
@@ -226,7 +216,7 @@ public class ApplicationController {
 
     private void logSuccessfulWork(Work work) {
         Log log = new Log();
-        log.setLog("Work №" + work.getId() + " " + work.getWorks() + " successfully!");
+        log.setLog("Work №" + work.getId() + " " + work.getWorks() + " successfully! " + work.getSizeWork() + " Robots were involved.");
         logService.save(log);
     }
 
