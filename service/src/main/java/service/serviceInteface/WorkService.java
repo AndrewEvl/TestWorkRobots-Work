@@ -6,15 +6,13 @@ import java.util.List;
 
 public interface WorkService {
 
-    void save (Work work);
+    void save(Work work);
 
-    List<Work> getAll ();
+    List<Work> getAll();
 
-    Work findById (Long id);
+    Work findById(Long id);
 
-    void update (Work work);
+    void update(Work work);
 
-    void delete (Work work);
-
-    Work minId ();
+    void delete(Work work);
 }
