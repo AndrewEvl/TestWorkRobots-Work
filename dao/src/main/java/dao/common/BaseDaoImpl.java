@@ -9,8 +9,8 @@ import org.springframework.core.GenericTypeResolver;
 import java.util.List;
 
 /**
- * Interface implementation {@link BaseDao}
- * @param <T> - the will com an entity that calls one of the methods.
+ * Interface implement {@link BaseDao}
+ * @param <T> - will be replaced into entity that will call one of the methods.
  */
 public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 

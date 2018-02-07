@@ -20,19 +20,21 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "log")
 /**
- * Robots class with properties <b>log</b> and <b>time</b>. Table on database "log"
+ * Class Log includes fields <b>log</b> and <b>time</b>. The name of table in database is "log"
  */
 public class Log extends BaseEntity {
 
-    /**
-     * Field log. Column on database "log"
-     */
+
     @Column(name = "log")
+    /**
+     * Field is {@link Log.log}. Column in database is "log"
+     */
     private String log;
 
-    /**
-     * Field log time create. Column on database "time"
-     */
+
     @Column(name = "time")
+    /**
+     * Field {@link Log.time} is time of creation log. Column in database is "time"
+     */
     private LocalDateTime time;
 }

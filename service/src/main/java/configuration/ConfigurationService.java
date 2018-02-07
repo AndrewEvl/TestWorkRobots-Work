@@ -11,13 +11,13 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 @ComponentScan(basePackages = "service")
 @Import(value = ConfigurationDao.class)
 /**
- * Configuration on service layer.
+ * Configuration of service layer.
  */
 public class ConfigurationService {
 
     @Bean
     /**
-     * Hibernate transaction manager configuration.
+     * Settings Hibernate transaction manager.
      */
     public HibernateTransactionManager transactionManager (SessionFactory sessionFactory){
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();

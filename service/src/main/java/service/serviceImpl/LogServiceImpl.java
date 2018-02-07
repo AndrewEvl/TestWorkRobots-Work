@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @Transactional
 /**
- * Here you can write the implementation on{@link LogService } of methods that are missing to work with database.
+ * Here you can write the implement from{@link LogService } of methods that are not enough for working with database.
  */
 public class LogServiceImpl implements LogService {
 

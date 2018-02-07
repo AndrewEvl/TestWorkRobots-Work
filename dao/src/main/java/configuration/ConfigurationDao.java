@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * Configuration for connecting to the database.
+ * Configuration for connection with the database.
  */
 
 @Configuration
@@ -36,7 +36,7 @@ public class ConfigurationDao {
     /** Dialect of the database*/
     @Value("${hibernate.dialect}")
     private String dialect;
-    /** Displaying SQL queries in the console*/
+    /** Display SQL queries in the console*/
     @Value("${hibernate.show_sql}")
     private String showSql;
     /** Format SQL queries*/
@@ -46,7 +46,7 @@ public class ConfigurationDao {
     @Value("${hibernate.creation_policy}")
     private String creationPolicy;
 
-    /** Setting up a connection to the database*/
+    /** Setting up a connection with the database*/
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -57,7 +57,7 @@ public class ConfigurationDao {
         return dataSource;
     }
 
-    /** Session factory setting and scan package*/
+    /** Settings sessionFactory and scan package*/
     @Bean
     public LocalSessionFactoryBean sessionFactory (){
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
@@ -67,7 +67,7 @@ public class ConfigurationDao {
         return sessionFactoryBean;
     }
 
-    /** Settings Hibernate to connection on database*/
+    /** Settings Hibernate for connection with the database*/
     @Bean
     public Properties hibernateProperties() {
         Properties properties = new Properties();

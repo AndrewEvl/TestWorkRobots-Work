@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Class for creating and defecting them to the page.
- * Creating a GET and POST query.
+ * Class for creation of HTML page.
+ * Creation of GET and POST query.
  */
 @Controller
 public class ApplicationController {
 
     /**
-     * Implements service <b>robotService</b> <b>workService</b> <b>logService</b> on application controller.
+     * Implements service <b>robotService</b> <b>workService</b> <b>logService</b> in the controller of application.
      */
     private final RobotService robotService;
     private final WorkService workService;
@@ -37,9 +37,9 @@ public class ApplicationController {
     }
 
     /**
-     * Create attribute work from model.
+     * Creation of attribute work for model.
      *
-     * @return - new entity Work.
+     * @return - new entity {@link Work}.
      */
     @ModelAttribute("work")
     public Work work() {
@@ -47,9 +47,9 @@ public class ApplicationController {
     }
 
     /**
-     * Create attribute robot from model.
+     * Creation of attribute robot for model.
      *
-     * @return - new entity Robot
+     * @return - new entity {@link Robot}
      */
     @ModelAttribute("robot")
     public Robot robot() {
@@ -57,9 +57,9 @@ public class ApplicationController {
     }
 
     /**
-     * This page puts the application on pause.
-     * Loads from the database all application log, all active robots and all the uncompleted work.
-     * And transfers to the page
+     * This page makes the application on pause.
+     * Load all application log, all active robots and all the uncompleted work from database.
+     * And transfer to the page
      *
      * @param model - for output to HTML
      * @return - HTML page "home-stop-page.html"
@@ -77,8 +77,8 @@ public class ApplicationController {
     }
 
     /**
-     * A page with dynamically displayed application work.
-     * Creation of new robots, works and deactivation random robots.
+     * Page for dynamically displayed application work.
+     * Creation of new robots, works and deactivation of random robots.
      *
      * @param model - for output to HTML
      * @return - HTML page "home-page.html"
@@ -112,8 +112,8 @@ public class ApplicationController {
 
     /**
      *
-     * @param robot - Creating entity robots
-     * @return - Redirection on home page
+     * @param robot - Creation of entity {@link Robot}
+     * @return - Redirection to home page
      */
     @GetMapping("/add-robots")
     public String addRobotsGet(Robot robot) {
@@ -179,8 +179,8 @@ public class ApplicationController {
     }
 
     /**
-     * This method add robots in work. If works list empty redirect user in home page.
-     * @return - redirect on home page.
+     * This method adds robots to {@link Work.robots}. If the list of works is empty it will redirect user to home page.
+     * @return - redirect to home page.
      */
     @GetMapping("/auto-add-robots-on-work")
     public String autoAddRobotsOnWork() {
@@ -208,7 +208,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method auto creating new entity Work.
+     * This method auto creates new entity {@link Work}.
      * @return - redirect on home page
      */
     @GetMapping("/auto-create-work")
@@ -218,7 +218,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method generation random number in robot
+     * This method generations random {@link Robot.numberRobot}
      * @return - String {@link Robot.numberRobot}
      */
     private String generationRobotNumber() {
@@ -233,7 +233,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method creating new entity robot.
+     * This method creates new entity {@link Robot}.
      */
     private void createRobots() {
         Robot robot = new Robot();
@@ -248,7 +248,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method random delete robots in database.
+     * This method random deletes {@link Robot} in database.
      */
     private void randomKillRobots() {
         Random random = new Random();
@@ -264,7 +264,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method random creating new entity work.
+     * This method random creates new entity {@link Work}.
      */
     private void creatingWork() {
         Work work = new Work();
@@ -279,7 +279,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method add in log information on creating new entity robots.
+     * This method adds information about creation of new entity robots to log.
      * @param robot -
      */
     private void logCreateRobot(Robot robot) {
@@ -289,7 +289,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method add in log information on delete entity robot in database.
+     * This method adds information about deleted entity robot from database to log .
      * @param robot
      */
     private void logDestroyRobot(Robot robot) {
@@ -299,7 +299,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method add in log information on creating new entity Work.
+     * This method adds information about creation of new entity Work to log.
      * @param work
      */
     private void logCreateWork(Work work) {
@@ -309,7 +309,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method add in log information on successful work robots.
+     * This method adds information about successful work robots to log .
      * @param work
      */
     private void logSuccessfulWork(Work work) {
