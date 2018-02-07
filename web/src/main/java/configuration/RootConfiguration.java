@@ -7,5 +7,8 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import(ConfigurationService.class)
 @ComponentScan
+/**
+ * Root configuration file.
+ */
 public class RootConfiguration {
 }

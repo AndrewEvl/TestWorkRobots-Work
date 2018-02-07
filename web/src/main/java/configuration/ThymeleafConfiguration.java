@@ -7,6 +7,9 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
+/**
+ * Thymeleaf configuration file.
+ */
 public class ThymeleafConfiguration {
 
 

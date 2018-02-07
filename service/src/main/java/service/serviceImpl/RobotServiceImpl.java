@@ -11,6 +11,9 @@ import java.util.List;
 
 @Service
 @Transactional
+/**
+ * Here you can write the implementation on{@link RobotService } of methods that are missing to work with database.
+ */
 public class RobotServiceImpl implements RobotService {
 
 

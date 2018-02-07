@@ -11,6 +11,10 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @ToString
+/**
+ * Abstract class from which it is necessary to inherit new entity that need <b>id</b> in the database.
+ * @param id - id entity.
+ */
 public abstract class BaseEntity {
 
     @Id

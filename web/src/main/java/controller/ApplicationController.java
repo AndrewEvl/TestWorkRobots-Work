@@ -15,9 +15,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Class for creating and defecting them to the page.
+ * Creating a GET and POST query.
+ */
 @Controller
 public class ApplicationController {
 
+    /**
+     * Implements service <b>robotService</b> <b>workService</b> <b>logService</b> on application controller.
+     */
     private final RobotService robotService;
     private final WorkService workService;
     private final LogService logService;
@@ -29,16 +36,34 @@ public class ApplicationController {
         this.logService = logService;
     }
 
+    /**
+     * Create attribute work from model.
+     *
+     * @return - new entity Work.
+     */
     @ModelAttribute("work")
     public Work work() {
         return new Work();
     }
 
+    /**
+     * Create attribute robot from model.
+     *
+     * @return - new entity Robot
+     */
     @ModelAttribute("robot")
     public Robot robot() {
         return new Robot();
     }
 
+    /**
+     * This page puts the application on pause.
+     * Loads from the database all application log, all active robots and all the uncompleted work.
+     * And transfers to the page
+     *
+     * @param model - for output to HTML
+     * @return - HTML page "home-stop-page.html"
+     */
     @GetMapping("/home/stop")
     public String homeStopPageGet(Model model) {
         List<Log> allLog = logService.getAll();
@@ -51,16 +76,27 @@ public class ApplicationController {
         return "home-stop-page";
     }
 
+    /**
+     * A page with dynamically displayed application work.
+     * Creation of new robots, works and deactivation random robots.
+     *
+     * @param model - for output to HTML
+     * @return - HTML page "home-page.html"
+     */
     @GetMapping("/home")
     public String homePageGet(Model model) {
+//        Counts the number of calls by the home page.
         if (ROUND == 0) {
             for (int i = 0; i < 5; i++) {
                 createRobots();
             }
         }
+//        Call method for kill random robots.
         randomKillRobots();
+//        Call method for creating work.
         creatingWork();
         List<Log> allLog = logService.getAll();
+//        Reverse list log on
         Collections.reverse(allLog);
         List<Robot> allRobots = robotService.getAll();
         List<Work> allWorks = workService.getAll();
@@ -74,6 +110,11 @@ public class ApplicationController {
         return "home-page";
     }
 
+    /**
+     *
+     * @param robot - Creating entity robots
+     * @return - Redirection on home page
+     */
     @GetMapping("/add-robots")
     public String addRobotsGet(Robot robot) {
         robotService.save(robot);
@@ -83,17 +124,32 @@ public class ApplicationController {
         return "redirect:/home";
     }
 
+    /**
+     *
+     * @return
+     */
     @GetMapping("/add-work")
     public String addWorkGet() {
         return "add-work-page";
     }
 
+    /**
+     *
+     * @param work
+     * @return
+     */
     @PostMapping("/add-work")
     public String addWorkPost(Work work) {
         workService.save(work);
         return "redirect:/home";
     }
 
+    /**
+     *
+     * @param work
+     * @param model
+     * @return
+     */
     @GetMapping("/add-robots-on-work")
     public String addRobotsOnWorkGet(Work work, Model model) {
         Long id = work.getId();
@@ -101,6 +157,11 @@ public class ApplicationController {
         return "redirect:/add-robots-on-work/{id}";
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GetMapping("/add-robots-on-work/{id}")
     public String addRobotsOnWorkPost(@PathVariable("id") Long id) {
         Work work = workService.findById(id);
@@ -117,6 +178,10 @@ public class ApplicationController {
         return "redirect:/home";
     }
 
+    /**
+     * This method add robots in work. If works list empty redirect user in home page.
+     * @return - redirect on home page.
+     */
     @GetMapping("/auto-add-robots-on-work")
     public String autoAddRobotsOnWork() {
         List<Work> workList = workService.getAll();
@@ -142,12 +207,20 @@ public class ApplicationController {
         return "redirect:/home";
     }
 
+    /**
+     * This method auto creating new entity Work.
+     * @return - redirect on home page
+     */
     @GetMapping("/auto-create-work")
     public String autoCreateWorkGet() {
         creatingWork();
         return "redirect:/home";
     }
 
+    /**
+     * This method generation random number in robot
+     * @return - String {@link Robot.numberRobot}
+     */
     private String generationRobotNumber() {
         int length = 7;
         String characters = "1234567890";
@@ -159,6 +232,9 @@ public class ApplicationController {
         return new String(text);
     }
 
+    /**
+     * This method creating new entity robot.
+     */
     private void createRobots() {
         Robot robot = new Robot();
         Random random = new Random();
@@ -171,6 +247,9 @@ public class ApplicationController {
 
     }
 
+    /**
+     * This method random delete robots in database.
+     */
     private void randomKillRobots() {
         Random random = new Random();
         int randomInt = random.nextInt(15);
@@ -184,6 +263,9 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * This method random creating new entity work.
+     */
     private void creatingWork() {
         Work work = new Work();
         Random random = new Random();
@@ -196,24 +278,40 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * This method add in log information on creating new entity robots.
+     * @param robot -
+     */
     private void logCreateRobot(Robot robot) {
         Log log = new Log();
         log.setLog("Create robot " + robot.getNumberRobot());
         logService.save(log);
     }
 
+    /**
+     * This method add in log information on delete entity robot in database.
+     * @param robot
+     */
     private void logDestroyRobot(Robot robot) {
         Log log = new Log();
         log.setLog("Robot was name " + robot.getNumberRobot() + " destroyed!");
         logService.save(log);
     }
 
+    /**
+     * This method add in log information on creating new entity Work.
+     * @param work
+     */
     private void logCreateWork(Work work) {
         Log log = new Log();
         log.setLog("Work " + work.getWorks() + " № " + work.getId() + " created!");
         logService.save(log);
     }
 
+    /**
+     * This method add in log information on successful work robots.
+     * @param work
+     */
     private void logSuccessfulWork(Work work) {
         Log log = new Log();
         log.setLog("Work №" + work.getId() + " " + work.getWorks() + " successfully! " + work.getSizeWork() + " Robots were involved.");

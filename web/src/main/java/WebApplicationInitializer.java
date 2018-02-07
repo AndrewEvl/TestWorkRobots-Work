@@ -5,6 +5,9 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import javax.servlet.Filter;
 
+/**
+ * Application configuration file. Encoding filter for database.
+ */
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] {RootConfiguration.class};

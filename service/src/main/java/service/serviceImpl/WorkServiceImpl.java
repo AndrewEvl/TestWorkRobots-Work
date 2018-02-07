@@ -11,6 +11,10 @@ import java.util.List;
 
 @Service
 @Transactional
+/**
+ * Here you can write the implementation on{@link WorkService } of methods that are missing to work with database.
+ */
+
 public class WorkServiceImpl implements WorkService {
 
     private final WorkDao workDao;

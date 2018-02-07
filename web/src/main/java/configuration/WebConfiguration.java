@@ -9,5 +9,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan(basePackages = "controller")
 @EnableWebMvc
 @Import(value = ThymeleafConfiguration.class)
+/**
+ * Web configuration file/
+ */
 public class WebConfiguration {
 }
