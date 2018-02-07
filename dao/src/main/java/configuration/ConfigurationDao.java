@@ -46,7 +46,10 @@ public class ConfigurationDao {
     @Value("${hibernate.creation_policy}")
     private String creationPolicy;
 
-    /** Setting up a connection with the database*/
+    /**
+     * Setting up a connection with the database.
+     * @return - dataSource.
+     */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -57,7 +60,10 @@ public class ConfigurationDao {
         return dataSource;
     }
 
-    /** Settings sessionFactory and scan package*/
+    /**
+     * Settings sessionFactory and scan package.
+     * @return - sessionFactory
+     */
     @Bean
     public LocalSessionFactoryBean sessionFactory (){
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
@@ -67,7 +73,10 @@ public class ConfigurationDao {
         return sessionFactoryBean;
     }
 
-    /** Settings Hibernate for connection with the database*/
+    /**
+     * Settings Hibernate for connection with the database.
+     * @return - Hibernate properties
+     */
     @Bean
     public Properties hibernateProperties() {
         Properties properties = new Properties();

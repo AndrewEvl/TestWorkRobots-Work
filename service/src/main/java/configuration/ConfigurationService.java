@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 
-@Configuration
-@ComponentScan(basePackages = "service")
-@Import(value = ConfigurationDao.class)
 /**
  * Configuration of service layer.
  */
+@Configuration
+@ComponentScan(basePackages = "service")
+@Import(value = ConfigurationDao.class)
 public class ConfigurationService {
 
     @Bean

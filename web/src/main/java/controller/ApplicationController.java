@@ -23,11 +23,20 @@ import java.util.Random;
 public class ApplicationController {
 
     /**
-     * Implements service <b>robotService</b> <b>workService</b> <b>logService</b> in the controller of application.
+     * Implement service <b>robotService</b> in the controller of application.
      */
     private final RobotService robotService;
+    /**
+     * Implement service <b>workService</b> in the controller of application.
+     */
     private final WorkService workService;
+    /**
+     * Implement service <b>logService</b> in the controller of application.
+     */
     private final LogService logService;
+    /**
+     * How many rounds passed since the start of the application
+     */
     private int ROUND = 0;
 
     public ApplicationController(RobotService robotService, WorkService workService, LogService logService) {
@@ -125,8 +134,8 @@ public class ApplicationController {
     }
 
     /**
-     *
-     * @return
+     * Add user entity Work.GET method.
+     * @return - Redirect to add-work-page.html
      */
     @GetMapping("/add-work")
     public String addWorkGet() {
@@ -134,9 +143,9 @@ public class ApplicationController {
     }
 
     /**
-     *
-     * @param work
-     * @return
+     *Add user entity Work.POST method.
+     * @param work - saving the received entity Work
+     * @return - Redirect to home page
      */
     @PostMapping("/add-work")
     public String addWorkPost(Work work) {
@@ -145,10 +154,10 @@ public class ApplicationController {
     }
 
     /**
-     *
-     * @param work
-     * @param model
-     * @return
+     *Add user robots on work.GET method.
+     * @param work {@link Work} entity
+     * @param model for output to HTML
+     * @return - redirect on POST method
      */
     @GetMapping("/add-robots-on-work")
     public String addRobotsOnWorkGet(Work work, Model model) {
@@ -158,9 +167,9 @@ public class ApplicationController {
     }
 
     /**
-     *
-     * @param id
-     * @return
+     *Add user robots on work. workService find work on ID.POST method.
+     * @param id - work ID on database.
+     * @return - redirect home page.
      */
     @GetMapping("/add-robots-on-work/{id}")
     public String addRobotsOnWorkPost(@PathVariable("id") Long id) {
@@ -179,7 +188,7 @@ public class ApplicationController {
     }
 
     /**
-     * This method adds robots to {@link Work.robots}. If the list of works is empty it will redirect user to home page.
+     * This method adds robots to {@link Work}. If the list of works is empty it will redirect user to home page.
      * @return - redirect to home page.
      */
     @GetMapping("/auto-add-robots-on-work")
@@ -218,8 +227,8 @@ public class ApplicationController {
     }
 
     /**
-     * This method generations random {@link Robot.numberRobot}
-     * @return - String {@link Robot.numberRobot}
+     * This method generations random {@link Robot}number.
+     * @return - String {@link Robot}
      */
     private String generationRobotNumber() {
         int length = 7;
@@ -280,7 +289,7 @@ public class ApplicationController {
 
     /**
      * This method adds information about creation of new entity robots to log.
-     * @param robot -
+     * @param robot - created entity of the robot.
      */
     private void logCreateRobot(Robot robot) {
         Log log = new Log();
@@ -290,7 +299,7 @@ public class ApplicationController {
 
     /**
      * This method adds information about deleted entity robot from database to log .
-     * @param robot
+     * @param robot - created entity of the robot.
      */
     private void logDestroyRobot(Robot robot) {
         Log log = new Log();
@@ -300,7 +309,7 @@ public class ApplicationController {
 
     /**
      * This method adds information about creation of new entity Work to log.
-     * @param work
+     * @param work - created entity of the work.
      */
     private void logCreateWork(Work work) {
         Log log = new Log();
@@ -310,7 +319,7 @@ public class ApplicationController {
 
     /**
      * This method adds information about successful work robots to log .
-     * @param work
+     * @param work - created entity of the work.
      */
     private void logSuccessfulWork(Work work) {
         Log log = new Log();

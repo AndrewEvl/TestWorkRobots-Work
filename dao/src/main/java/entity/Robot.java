@@ -10,7 +10,6 @@ import javax.persistence.*;
 
 /**
  * Class Robot includes fields <b>numberRobot</b> and <b>Work</b>. The name of table in database is "robots"
- * @see Robot
  */
 @Entity
 @Data
@@ -20,18 +19,16 @@ import javax.persistence.*;
 @Table(name = "robots")
 public class Robot extends BaseEntity {
 
-
-    @Column(name = "number_robot")
     /**
-     * Field {@link Robot.numberRobot} is in application. Column in database is "number_robots"
+     * Field {@link Robot} number is in application. Column in database is "number_robots"
      */
+    @Column(name = "number_robot")
     private String numberRobot;
 
-
+    /**
+     * Field {@link Robot} is work that must be done. Column in database is "work_id"
+     */
     @ManyToOne
     @JoinColumn(name = "work_id")
-    /**
-     * Field {@link Robot.work} is work that must be done. Column in database is "work_id"
-     */
     private Work work;
 }

@@ -12,29 +12,26 @@ import java.time.LocalDateTime;
 
 
 
-
+/**
+ * Class Log includes fields <b>log</b> and <b>time</b>. The name of table in database is "log"
+ */
 @Entity
 @Data
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "log")
-/**
- * Class Log includes fields <b>log</b> and <b>time</b>. The name of table in database is "log"
- */
 public class Log extends BaseEntity {
 
-
-    @Column(name = "log")
     /**
-     * Field is {@link Log.log}. Column in database is "log"
+     * Field is text log. Column in database is "log"
      */
+    @Column(name = "log")
     private String log;
 
-
-    @Column(name = "time")
     /**
-     * Field {@link Log.time} is time of creation log. Column in database is "time"
+     * Field is time of creation log. Column in database is "time"
      */
+    @Column(name = "time")
     private LocalDateTime time;
 }
