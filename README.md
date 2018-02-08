@@ -1,12 +1,14 @@
 ***Hi! My name Andrew! It's my realisation you task.***
-<h4>Start application<h4>
+
+Start application
 
 
 First, you need to run [SQL.sql](SQL.sql) file to create a database on your PC. 
 Tables are created automatically after the application starts.
 Start page <http://localhost:8080/home> my application. 
 This page its start work my application.
-<h4>Used technologies<h4>
+
+Used technologies
 
 * Spring 5
 * Hibernate
@@ -15,7 +17,7 @@ This page its start work my application.
 * H2 (for test database)
 * JUnit
 
-<h4>Specification<h4>
+Specification
 
 The start page of my application is the home page <http://localhost:8080/home>. 
 When I go to this page, the application will start working.
