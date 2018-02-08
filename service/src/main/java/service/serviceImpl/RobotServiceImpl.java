@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.serviceInteface.RobotService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * Here you can write the implement from{@link RobotService } of methods that are not enough for working with database.
  */
 @Service
-//@Transactional
-//TODO reverse transaction
+@Transactional
 public class RobotServiceImpl implements RobotService {
 
 

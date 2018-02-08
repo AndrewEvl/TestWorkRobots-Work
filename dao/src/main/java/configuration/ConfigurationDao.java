@@ -15,39 +15,63 @@ import java.util.Properties;
 /**
  * Configuration for connection with the database.
  */
-
 @Configuration
 @ComponentScan(basePackages = {"dao"})
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class ConfigurationDao {
-    /** Path to the database*/
+
+    /**
+     * Path to the database
+     */
     @Value("${jdbc.url}")
     private String url;
-    /** Connection driver */
+
+    /**
+     * Connection driver
+     */
     @Value("${jdbc.driver}")
     private String driver;
-    /** Username for connection database*/
+
+    /**
+     * Username for connection database
+     */
     @Value("${jdbc.username}")
     private String username;
-    /** Password for connection database*/
+
+    /**
+     * Password for connection database
+     */
     @Value("${jdbc.password}")
     private String password;
-    /** Dialect of the database*/
+
+    /**
+     * Dialect of the database
+     */
     @Value("${hibernate.dialect}")
     private String dialect;
-    /** Display SQL queries in the console*/
+
+    /**
+     * Display SQL queries in the console
+     */
     @Value("${hibernate.show_sql}")
     private String showSql;
-    /** Format SQL queries*/
+
+    /**
+     * Format SQL queries
+     */
     @Value("${hibernate.format_sql}")
     private String formatSql;
-    /** Policy of working with the database*/
+
+    /**
+     * Policy of working with the database
+     */
     @Value("${hibernate.creation_policy}")
     private String creationPolicy;
 
     /**
      * Setting up a connection with the database.
+     *
      * @return - dataSource.
      */
     @Bean
@@ -62,10 +86,11 @@ public class ConfigurationDao {
 
     /**
      * Settings sessionFactory and scan package.
+     *
      * @return - sessionFactory
      */
     @Bean
-    public LocalSessionFactoryBean sessionFactory (){
+    public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan("entity");
@@ -75,6 +100,7 @@ public class ConfigurationDao {
 
     /**
      * Settings Hibernate for connection with the database.
+     *
      * @return - Hibernate properties
      */
     @Bean

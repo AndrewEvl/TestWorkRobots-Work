@@ -127,9 +127,7 @@ public class ApplicationController {
     @GetMapping("/add-robots")
     public String addRobotsGet(Robot robot) {
         robotService.save(robot);
-        Log log = new Log();
-        log.setLog("Create robot " + robot.getNumberRobot());
-        logService.save(log);
+        logCreateRobot(robot);
         return "redirect:/home";
     }
 

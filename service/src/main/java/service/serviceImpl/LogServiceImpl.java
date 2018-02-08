@@ -5,6 +5,7 @@ import entity.Log;
 import org.springframework.stereotype.Service;
 import service.serviceInteface.LogService;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,8 +13,7 @@ import java.util.List;
  * Here you can write the implement from{@link LogService } of methods that are not enough for working with database.
  */
 @Service
-//@Transactional
-//TODO reverse transaction
+@Transactional
 public class LogServiceImpl implements LogService {
 
     private final LogDao logDao;

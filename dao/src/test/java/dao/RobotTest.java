@@ -11,11 +11,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+/**
+ * Test for {@link RobotDao} class.
+ */
 public class RobotTest extends BaseTest {
 
     @Autowired
     private RobotDao robotDao;
 
+    /**
+     * Method testing save and find by ID query and checks the receives result.
+     */
     @Test
     public void findByIdAndSaveTest() {
         Robot robot = new Robot();
@@ -25,6 +31,9 @@ public class RobotTest extends BaseTest {
         assertEquals(byId.getNumberRobot(), "123");
     }
 
+    /**
+     * Method testing delete on database entity.
+     */
     @Test
     public void deleteTest() {
         Robot robot = new Robot();
@@ -36,6 +45,9 @@ public class RobotTest extends BaseTest {
         assertNull(id);
     }
 
+    /**
+     * Method testing update created entity new information.
+     */
     @Test
     public void updateTest() {
         Robot robot = new Robot();
@@ -49,6 +61,10 @@ public class RobotTest extends BaseTest {
         assertEquals(id.getNumberRobot(), "321");
     }
 
+    /**
+     * The method tests the receipt of all entities
+     * of this type from the database.
+     */
     @Test
     public void findAllTest () {
         Robot robotFirst = new Robot();

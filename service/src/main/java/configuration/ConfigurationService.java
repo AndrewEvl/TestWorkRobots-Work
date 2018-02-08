@@ -15,10 +15,12 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 @Import(value = ConfigurationDao.class)
 public class ConfigurationService {
 
-    @Bean
     /**
      * Settings Hibernate transaction manager.
+     * @param sessionFactory - sessionFactory Hibernate
+     * @return - transactionManager.
      */
+    @Bean
     public HibernateTransactionManager transactionManager (SessionFactory sessionFactory){
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactory);

@@ -11,11 +11,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+/**
+ * Test for {@link WorkDao} class.
+ */
 public class WorkTest extends BaseTest {
 
     @Autowired
     private WorkDao workDao;
 
+    /**
+     * Method testing save and find by ID query and checks the receives result.
+     */
     @Test
     public void findByIdAndSaveTest() {
         Work work = new Work();
@@ -26,6 +32,9 @@ public class WorkTest extends BaseTest {
         assertEquals(byId.getWorks(), "Test");
     }
 
+    /**
+     * Method testing delete on database entity.
+     */
     @Test
     public void deleteTest() {
         Work work = new Work();
@@ -38,6 +47,9 @@ public class WorkTest extends BaseTest {
         assertNull(id);
     }
 
+    /**
+     * Method testing update created entity new information.
+     */
     @Test
     public void updateTest(){
         Work work = new Work();
@@ -52,6 +64,10 @@ public class WorkTest extends BaseTest {
         assertEquals(id.getWorks(), "Update test");
     }
 
+    /**
+     * The method tests the receipt of all entities
+     * of this type from the database.
+     */
     @Test
     public void findAllTest (){
         Work workFirst = new Work();
