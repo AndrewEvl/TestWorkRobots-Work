@@ -1,24 +1,23 @@
 ***Hi! My name Andrew! It's my realisation you task.***
-
-Start application
-
-
+---
+<h5> Start application <h5>
+---
 First, you need to run [SQL.sql](SQL.sql) file to create a database on your PC. 
 Tables are created automatically after the application starts.
 Start page <http://localhost:8080/home> my application. 
 This page its start work my application.
-
-Used technologies
-
+---
+<h5> Used technologies <h5>
+---
 * Spring 5
 * Hibernate
 * Thymeleaf
 * SQL
 * H2 (for test database)
 * JUnit
-
-Specification
-
+---
+<h5> Specification <h5>
+---
 The start page of my application is the home page <http://localhost:8080/home>. 
 When I go to this page, the application will start working.
 In order to suspend the application and see its current status, 
