@@ -1,13 +1,13 @@
 ***Hi! My name Andrew! It's my realisation you task.***
 <hr>
-<h4> Start application <h4>
+Start application
 
 First, you need to run [SQL.sql](SQL.sql) file to create a database on your PC. 
 Tables are created automatically after the application starts.
 Start page <http://localhost:8080/home> my application. 
 This page its start work my application.
 <hr>
-<h4> Used technologies <h4>
+Used technologies
 
 * Spring 5
 * Hibernate
@@ -16,7 +16,7 @@ This page its start work my application.
 * H2 (for test database)
 * JUnit
 <hr>
-<h4> Specification <h4>
+Specification
 
 The start page of my application is the home page <http://localhost:8080/home>. 
 When I go to this page, the application will start working.
@@ -29,7 +29,7 @@ At startup, the application automatically creates work for robots,
 as well as sending robots to work and if the robots are missing, 
 the application creates new ones for its execution. 
 All information is displayed on the start page in real time.
-
+<hr>
 ***Haw a nice day!***
 
 ***Andrew Evlash***
