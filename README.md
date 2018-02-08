@@ -31,6 +31,6 @@ the application creates new ones for its execution.
 All information is displayed on the start page in real time.
 <hr>
 
-***Haw a nice day!***
+***Have a nice day!***
 
 ***Andrew Evlash***
