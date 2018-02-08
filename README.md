@@ -7,7 +7,7 @@ Tables are created automatically after the application starts.
 Start page <http://localhost:8080/home> my application. 
 This page its start work my application.
 <hr>
-Used technologies
+Used technologies :
 
 * Spring 5
 * Hibernate
@@ -30,6 +30,7 @@ as well as sending robots to work and if the robots are missing,
 the application creates new ones for its execution. 
 All information is displayed on the start page in real time.
 <hr>
+
 ***Haw a nice day!***
 
 ***Andrew Evlash***
