@@ -11,7 +11,6 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 
-
 /**
  * Class Log includes fields <b>log</b> and <b>time</b>. The name of table in database is "log"
  */

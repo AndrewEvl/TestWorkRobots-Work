@@ -15,18 +15,27 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 @Import(ConfigurationDao.class)
 public class TestConfiguration {
 
-    /** Path to the database*/
+    /**
+     * Path to the database
+     */
     @Value("${jdbc.url}")
     private String url;
-    /** Username for connection database*/
+
+    /**
+     * Username for connection database
+     */
     @Value("${jdbc.username}")
     private String username;
-    /** Password for connection database*/
+
+    /**
+     * Password for connection database
+     */
     @Value("${jdbc.password}")
     private String password;
 
     /**
      * Settings Hibernate transaction manager for tests.
+     *
      * @param sessionFactory - sessionFactory Hibernate
      * @return - transactionManager.
      */

@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Interface implement {@link BaseDao}
+ *
  * @param <T> - will be replaced into entity that will call one of the methods.
  */
 public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
