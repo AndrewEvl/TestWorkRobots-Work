@@ -9,7 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 /**
- * Class Robot includes fields <b>numberRobot</b> and <b>Work</b>. The name of table in database is "robots"
+ * Class Robot includes fields <b>numberRobot</b> and <b>work</b>. The name of table in database is "robots"
  */
 @Entity
 @Data

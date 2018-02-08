@@ -21,7 +21,7 @@ public class WorkServiceTest extends BaseTest {
 
 
     /**
-     * Method testing save and find by ID query and checks the receives result.
+     * Method tests of saving and finding by ID query and checks received result.
      */
     @Test
     public void findByIdAndSaveTest() {
@@ -34,7 +34,7 @@ public class WorkServiceTest extends BaseTest {
     }
 
     /**
-     * Method testing delete on database entity.
+     * Method tests of deleting entity form database.
      */
     @Test
     public void deleteTest() {
@@ -49,7 +49,7 @@ public class WorkServiceTest extends BaseTest {
     }
 
     /**
-     * Method testing update created entity new information.
+     * Method tests of updating of created entity with new information.
      */
     @Test
     public void updateTest(){
@@ -66,8 +66,7 @@ public class WorkServiceTest extends BaseTest {
     }
 
     /**
-     * The method tests the receipt of all entities
-     * of this type from the database.
+     * The method tests receiving of all entities of this type from the database.
      */
     @Test
     public void findAllTest (){

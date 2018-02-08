@@ -1,6 +1,8 @@
 package controller;
 
-import entity.*;
+import entity.Log;
+import entity.Robot;
+import entity.Work;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,7 +69,7 @@ public class ApplicationController {
 
     /**
      * This page makes the application on pause.
-     * Load all application log, all active robots and all the uncompleted work from database.
+     * Load all application log, all active robots and all uncompleted work from database.
      * And transfer to the page
      *
      * @param model - for output to HTML
@@ -120,7 +122,6 @@ public class ApplicationController {
     }
 
     /**
-     *
      * @param robot - Creation of entity {@link Robot}
      * @return - Redirection to home page
      */
@@ -132,7 +133,8 @@ public class ApplicationController {
     }
 
     /**
-     * Add user entity Work.GET method.
+     * User adds entity Work.GET method.
+     *
      * @return - Redirect to add-work-page.html
      */
     @GetMapping("/add-work")
@@ -141,7 +143,8 @@ public class ApplicationController {
     }
 
     /**
-     *Add user entity Work.POST method.
+     * User adds entity Work.POST method.
+     *
      * @param work - saving the received entity Work
      * @return - Redirect to home page
      */
@@ -152,8 +155,9 @@ public class ApplicationController {
     }
 
     /**
-     *Add user robots on work.GET method.
-     * @param work {@link Work} entity
+     * User adds robots to work.GET method.
+     *
+     * @param work  {@link Work} entity
      * @param model for output to HTML
      * @return - redirect on POST method
      */
@@ -165,7 +169,8 @@ public class ApplicationController {
     }
 
     /**
-     *Add user robots on work. workService find work on ID.POST method.
+     * User adds {@link Robot} to {@link Work}. workService finds work on ID.POST method.
+     *
      * @param id - work ID on database.
      * @return - redirect home page.
      */
@@ -186,7 +191,8 @@ public class ApplicationController {
     }
 
     /**
-     * This method adds robots to {@link Work}. If the list of works is empty it will redirect user to home page.
+     * This method adds {@link Robot} to {@link Work}. If the list of works is empty it will redirect user to home page.
+     *
      * @return - redirect to home page.
      */
     @GetMapping("/auto-add-robots-on-work")
@@ -216,7 +222,8 @@ public class ApplicationController {
 
     /**
      * This method auto creates new entity {@link Work}.
-     * @return - redirect on home page
+     *
+     * @return - redirect to home page
      */
     @GetMapping("/auto-create-work")
     public String autoCreateWorkGet() {
@@ -226,7 +233,8 @@ public class ApplicationController {
 
     /**
      * This method generations random {@link Robot}number.
-     * @return - String {@link Robot}
+     *
+     * @return - String {@link Robot} numberRobots
      */
     private String generationRobotNumber() {
         int length = 7;
@@ -286,7 +294,8 @@ public class ApplicationController {
     }
 
     /**
-     * This method adds information about creation of new entity robots to log.
+     * This method adds information about creation of new entity {@link Robot} to {@link Log}.
+     *
      * @param robot - created entity of the robot.
      */
     private void logCreateRobot(Robot robot) {
@@ -296,7 +305,8 @@ public class ApplicationController {
     }
 
     /**
-     * This method adds information about deleted entity robot from database to log .
+     * This method adds information about deleted entity {@link Robot} from database to {@link Log}.
+     *
      * @param robot - created entity of the robot.
      */
     private void logDestroyRobot(Robot robot) {
@@ -306,8 +316,9 @@ public class ApplicationController {
     }
 
     /**
-     * This method adds information about creation of new entity Work to log.
-     * @param work - created entity of the work.
+     * This method adds information about creation of new entity {@link Work} to {@link Log}.
+     *
+     * @param work - created entity of work.
      */
     private void logCreateWork(Work work) {
         Log log = new Log();
@@ -316,8 +327,9 @@ public class ApplicationController {
     }
 
     /**
-     * This method adds information about successful work robots to log .
-     * @param work - created entity of the work.
+     * This method adds information about successful {@link Work} of robots to {@link Log} .
+     *
+     * @param work - created entity of work.
      */
     private void logSuccessfulWork(Work work) {
         Log log = new Log();

@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Class work includes fields <b>numberRobot</b> and <b>work</b> and. The name of table in database is "works"
+ * Class work includes fields <b>works</b> and <b>robots</b> and <b>sizeWork</b>. The name of table in database is "works"
  */
 @Entity
 @Data

@@ -20,7 +20,7 @@ public class RobotsServiceTest extends BaseTest {
     private RobotService robotService;
 
     /**
-     * Method testing save and find by ID query and checks the receives result.
+     * Method tests of saving and finding by ID query and checks received result.
      */
     @Test
     public void findByIdAndSaveTest() {
@@ -32,7 +32,7 @@ public class RobotsServiceTest extends BaseTest {
     }
 
     /**
-     * Method testing delete on database entity.
+     * Method tests of updating of created entity with new information.
      */
     @Test
     public void deleteTest() {
@@ -62,8 +62,7 @@ public class RobotsServiceTest extends BaseTest {
     }
 
     /**
-     * The method tests the receipt of all entities
-     * of this type from the database.
+     * The method tests receiving of all entities of this type from the database.
      */
     @Test
     public void findAllTest () {
