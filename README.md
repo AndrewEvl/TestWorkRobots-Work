@@ -1,4 +1,4 @@
-***Hi! My name is Andrew! It's my realisation of you task.***
+***Hi! My name is Andrew!***
 <hr>
 Start of application
 
